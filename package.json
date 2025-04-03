@@ -2,7 +2,7 @@
   "name": "my-meteor-app",
   "private": true,
   "scripts": {
-    "start": "meteor npm install && meteor --port $PORT",
+    "start": "meteor --exclude-archs web.browser.legacy,web.cordova --settings private/settings.json",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "check": "npx @biomejs/biome check --write ./**/*.{js,jsx}",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
