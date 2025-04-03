@@ -1,18 +1,23 @@
-# Usa la imagen oficial de Node.js
+# Usa una imagen de Node.js (asegurándote que la versión sea compatible con Meteor)
 FROM node:16-slim
 
-# Establecer el directorio de trabajo en /app
+# Instalar dependencias del sistema necesarias para Meteor (en este caso, curl y bash)
+RUN apt-get update && apt-get install -y curl bash
+
+# Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar los archivos del proyecto al contenedor
+# Copiar el código de la aplicación dentro del contenedor
 COPY . .
 
-# Instalar dependencias de Meteor
+# Instalar Meteor de forma global
 RUN curl https://install.meteor.com/ | sh
+
+# Asegurarnos de que las dependencias de npm estén instaladas
 RUN meteor npm install
 
-# Exponer el puerto en el que Meteor va a correr
+# Exponer el puerto 3000 (puerto por defecto de Meteor)
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
+# Ejecutar la aplicación Meteor
 CMD ["meteor", "run", "--production"]
