@@ -1,0 +1,9 @@
+{
+    "galaxy.meteor.com": {
+      "env": {
+        "MONGO_URL": "mongodb+srv://axel:1234@cluster0.qfahsat.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "ROOT_URL": "https://axel-meteor-final.meteorapp.com"
+      }
+    }
+  }
+  
